@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1"
+    />
+    <meta name="theme-color" content="#12140f" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="WD Mortar" />
+    <meta
+      name="description"
+      content="WARDOGS L81 mortar calculator. Type gun and target coordinates, read range, 227SW-style azimuth, and elevation MILs."
+    />
+    <title>WARDOGS Mortar Calculator</title>
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="icon" href="/icons/icon-192.png" type="image/png" />
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="top">
+        <div class="tag">L81</div>
+        <h1>WARDOGS <span>MORTAR</span></h1>
+        <div class="live" aria-hidden="true">LIVE</div>
+      </header>
+
+      <section class="solution" aria-live="polite">
+        <div class="solution-grid">
+          <div class="metric">
+            <span class="label">RANGE</span>
+            <div class="readout">
+              <span id="range" class="value">—</span>
+              <span class="unit">m</span>
+            </div>
+          </div>
+          <div class="metric hero">
+            <span class="label">AZIMUTH</span>
+            <div class="readout">
+              <span id="bearing" class="value hud" title="Tap to copy">—</span>
+            </div>
+          </div>
+          <div class="metric">
+            <span class="label">ELEV <em>EST</em></span>
+            <div class="readout">
+              <span id="mils" class="value">—</span>
+              <span class="unit">MIL</span>
+            </div>
+          </div>
+        </div>
+        <p id="status" class="status" data-kind="wait">ENTER ALL FOUR COORDINATES</p>
+      </section>
+
+      <section class="block" id="gun-block">
+        <div class="block-head">
+          <h2>01 FIRING POSITION</h2>
+          <div class="row-actions">
+            <button type="button" id="paste-gun" class="ghost">PASTE</button>
+            <button type="button" id="lock-gun" class="ghost" aria-pressed="false">LOCK</button>
+          </div>
+        </div>
+        <div class="xy">
+          <label>
+            <span>X</span>
+            <input
+              id="gun-x"
+              inputmode="decimal"
+              enterkeyhint="next"
+              autocomplete="off"
+              autocapitalize="off"
+              spellcheck="false"
+              placeholder="0.00"
+            />
+          </label>
+          <label>
+            <span>Y</span>
+            <input
+              id="gun-y"
+              inputmode="decimal"
+              enterkeyhint="next"
+              autocomplete="off"
+              autocapitalize="off"
+              spellcheck="false"
+              placeholder="0.00"
+            />
+          </label>
+        </div>
+      </section>
+
+      <section class="block">
+        <div class="block-head">
+          <h2>02 TARGET</h2>
+          <div class="row-actions">
+            <button type="button" id="paste-tgt" class="ghost">PASTE</button>
+            <button type="button" id="swap" class="ghost">SWAP</button>
+            <button type="button" id="clear-tgt" class="ghost danger">CLEAR</button>
+          </div>
+        </div>
+        <div class="xy">
+          <label>
+            <span>X</span>
+            <input
+              id="tgt-x"
+              inputmode="decimal"
+              enterkeyhint="next"
+              autocomplete="off"
+              autocapitalize="off"
+              spellcheck="false"
+              placeholder="0.00"
+            />
+          </label>
+          <label>
+            <span>Y</span>
+            <input
+              id="tgt-y"
+              inputmode="decimal"
+              enterkeyhint="done"
+              autocomplete="off"
+              autocapitalize="off"
+              spellcheck="false"
+              placeholder="0.00"
+            />
+          </label>
+        </div>
+      </section>
+
+      <section class="nudge">
+        <div class="nudge-head">
+          <h2>WALK FIRE</h2>
+          <div class="steps" role="group" aria-label="Nudge distance">
+            <button type="button" id="step-10" aria-pressed="true">10 m</button>
+            <button type="button" id="step-50" aria-pressed="false">50 m</button>
+          </div>
+        </div>
+        <div id="nudge-pad" class="pad" data-step="10">
+          <button type="button" class="dir n" data-dir="N" aria-label="Nudge north">N</button>
+          <button type="button" class="dir w" data-dir="W" aria-label="Nudge west">W</button>
+          <button type="button" class="dir e" data-dir="E" aria-label="Nudge east">E</button>
+          <button type="button" class="dir s" data-dir="S" aria-label="Nudge south">S</button>
+        </div>
+      </section>
+
+      <p class="fineprint">
+        1 grid = 100 m · Y is north · Elevation MILs are a community table, not official.
+        Range the first shell. Unofficial fan tool, not affiliated with Bulkhead.
+      </p>
+
+      <aside id="install-hint" class="install" hidden>
+        <p>
+          <strong>Add to Home Screen</strong>
+          Android: Chrome menu → Add to Home screen. iPhone: Share → Add to Home Screen.
+        </p>
+        <button type="button" id="dismiss-install" class="ghost">GOT IT</button>
+      </aside>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
