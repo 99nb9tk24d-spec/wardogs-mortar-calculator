@@ -1,4 +1,4 @@
-const CACHE = "wd-mortar-v1";
+const CACHE = "wd-mortar-v2";
 
 self.addEventListener("install", (event) => {
   self.skipWaiting();

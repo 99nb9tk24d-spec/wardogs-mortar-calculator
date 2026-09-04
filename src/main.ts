@@ -148,6 +148,18 @@ function applyNudge(dir: Cardinal): void {
   render();
 }
 
+function applyQuery(): void {
+  const q = new URLSearchParams(location.search);
+  const gx = q.get("gx");
+  const gy = q.get("gy");
+  const tx = q.get("tx");
+  const ty = q.get("ty");
+  if (gx !== null) gunX.value = gx;
+  if (gy !== null) gunY.value = gy;
+  if (tx !== null) tgtX.value = tx;
+  if (ty !== null) tgtY.value = ty;
+}
+
 function restore(): void {
   const s = loadState();
   gunX.value = s.gunX;
@@ -161,6 +173,7 @@ function restore(): void {
   if (!s.installHintDismissed && !isStandalone()) {
     installEl.hidden = false;
   }
+  applyQuery();
   render();
 }
 

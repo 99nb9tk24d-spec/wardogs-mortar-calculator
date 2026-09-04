@@ -26,22 +26,21 @@
       <header class="top">
         <div class="tag">L81</div>
         <h1>WARDOGS <span>MORTAR</span></h1>
-        <div class="live" aria-hidden="true">LIVE</div>
       </header>
 
       <section class="solution" aria-live="polite">
         <div class="solution-grid">
+          <div class="metric hero">
+            <span class="label">AZIMUTH</span>
+            <div class="readout">
+              <span id="bearing" class="value hud" title="Tap to copy">—</span>
+            </div>
+          </div>
           <div class="metric">
             <span class="label">RANGE</span>
             <div class="readout">
               <span id="range" class="value">—</span>
               <span class="unit">m</span>
-            </div>
-          </div>
-          <div class="metric hero">
-            <span class="label">AZIMUTH</span>
-            <div class="readout">
-              <span id="bearing" class="value hud" title="Tap to copy">—</span>
             </div>
           </div>
           <div class="metric">
@@ -68,24 +67,26 @@
             <span>X</span>
             <input
               id="gun-x"
+              size="6"
               inputmode="decimal"
               enterkeyhint="next"
               autocomplete="off"
               autocapitalize="off"
               spellcheck="false"
-              placeholder="0.00"
+              placeholder=""
             />
           </label>
           <label>
             <span>Y</span>
             <input
               id="gun-y"
+              size="6"
               inputmode="decimal"
               enterkeyhint="next"
               autocomplete="off"
               autocapitalize="off"
               spellcheck="false"
-              placeholder="0.00"
+              placeholder=""
             />
           </label>
         </div>
@@ -97,7 +98,7 @@
           <div class="row-actions">
             <button type="button" id="paste-tgt" class="ghost">PASTE</button>
             <button type="button" id="swap" class="ghost">SWAP</button>
-            <button type="button" id="clear-tgt" class="ghost danger">CLEAR</button>
+            <button type="button" id="clear-tgt" class="ghost danger">CLR</button>
           </div>
         </div>
         <div class="xy">
@@ -105,24 +106,26 @@
             <span>X</span>
             <input
               id="tgt-x"
+              size="6"
               inputmode="decimal"
               enterkeyhint="next"
               autocomplete="off"
               autocapitalize="off"
               spellcheck="false"
-              placeholder="0.00"
+              placeholder=""
             />
           </label>
           <label>
             <span>Y</span>
             <input
               id="tgt-y"
+              size="6"
               inputmode="decimal"
               enterkeyhint="done"
               autocomplete="off"
               autocapitalize="off"
               spellcheck="false"
-              placeholder="0.00"
+              placeholder=""
             />
           </label>
         </div>
@@ -145,8 +148,8 @@
       </section>
 
       <p class="fineprint">
-        1 grid = 100 m · Y is north · Elevation MILs are a community table, not official.
-        Range the first shell. Unofficial fan tool, not affiliated with Bulkhead.
+        1 grid = 100 m. Y is north. Elevation MILs are a community estimate —
+        range the first shell. Unofficial fan tool, not affiliated with Bulkhead.
       </p>
 
       <aside id="install-hint" class="install" hidden>
